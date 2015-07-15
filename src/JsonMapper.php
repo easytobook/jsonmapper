@@ -173,7 +173,7 @@ class JsonMapper
                 $array = new $type();
             }
 
-            if ($array !== null) {
+            if ($array !== null || (is_array($jvalue) && !$jvalue && $subtype === null)) {
                 if (!$this->isSimpleType($subtype)) {
                     $subtype = $this->getFullNamespace($subtype, $strNs);
                 }
